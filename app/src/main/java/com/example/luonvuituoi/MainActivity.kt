@@ -99,6 +99,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.nav_hotnews -> {
+            }
 
             R.id.nav_home -> {
                 val navOptions =
@@ -107,16 +109,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .navigate(R.id.locationFragment, null, navOptions)
             }
             R.id.nav_my_bookings -> {
-//                if (isValidDestination(R.id.nav_my_bookings)) {
-//                    Navigation.findNavController(this,R.id.fragmentContainerView2)
-//                        .navigate(R.id.nav_my_bookings)
-//                }
             }
             R.id.nav_payment -> {
-//                if (isValidDestination(R.id.slotBookingFragment)) {
-//                    Navigation.findNavController(this, R.id.fragmentContainerView2)
-//                        .navigate(R.id.slotBookingFragment)
-//                }
             }
             R.id.nav_settings -> {
 

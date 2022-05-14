@@ -7,6 +7,10 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_mall"
             android:title="@string/home" />
+        <item
+            android:id="@+id/nav_hotnews"
+            android:icon="@drawable/ic_news"
+            android:title="Hot News" />
 
         <item
             android:id="@+id/nav_my_bookings"
