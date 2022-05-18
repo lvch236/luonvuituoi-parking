@@ -18,6 +18,7 @@ import com.example.luonvuituoi.OnItemClickListener
 import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.MallItemAdapter
 import com.example.luonvuituoi.databinding.FragmentLocationBinding
+import com.example.luonvuituoi.helper.DataStore
 import com.example.luonvuituoi.item.MallItem
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -32,7 +33,6 @@ class LocationFragment : Fragment(), OnItemClickListener {
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
     lateinit var mallItemAdapter: MallItemAdapter
-    private var mallItemList = arrayListOf<MallItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,9 +47,8 @@ class LocationFragment : Fragment(), OnItemClickListener {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(context)
 
         getLocation()
-        buildData()
-
-        mallItemAdapter = MallItemAdapter(mallItemList, this)
+        val data = DataStore.getDataSet()
+        mallItemAdapter = MallItemAdapter(data, this)
         binding.rvMallItems.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = mallItemAdapter
@@ -58,18 +57,6 @@ class LocationFragment : Fragment(), OnItemClickListener {
 
 
         return binding.root
-    }
-
-    private fun buildData() {
-        mallItemList.add(MallItem(R.drawable.dongkhoi, "VINCOM Dong Khoi, District 1", "9 km away", 56))
-        mallItemList.add(MallItem(R.drawable.scvivo, "SC VIVO, District 7", "15.5 km away", 107))
-        mallItemList.add(MallItem(R.drawable.crescent, "CRESCENT MALL, District 7", "9.5 km away", 54))
-        mallItemList.add(MallItem(R.drawable.takashima, "TAKASHIMAYA, District 1", "15 km away", 86))
-        mallItemList.add(MallItem(R.drawable.megamall, "VINCOM MEGA MALL, District 2", "14 km away", 42))
-        mallItemList.add(MallItem(R.drawable.pearl, "PEARL PLAZA, Binh Thanh District", "12 km away", 2))
-        mallItemList.add(MallItem(R.drawable.vanhanh, "Van Hanh Mall, District 10", "7 km away", 77))
-        mallItemList.add(MallItem(R.drawable.giga, "GIGA MALL, Thu Duc City", "3 km away", 99))
-        mallItemList.add(MallItem(R.drawable.bitexco, "BITEXCO, District 1", "10 km away", 188))
     }
 
     private fun getLocation() {
