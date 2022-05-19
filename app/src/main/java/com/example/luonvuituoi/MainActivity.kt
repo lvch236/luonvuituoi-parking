@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -52,8 +51,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         navigationView.itemIconTintList = null
 
         NavigationUI.setupActionBarWithNavController(this, navController, drawer)
-       NavigationUI.setupWithNavController(navigationView, navController)
-       navigationView.setNavigationItemSelectedListener(this@MainActivity)
+        NavigationUI.setupWithNavController(navigationView, navController)
+        navigationView.setNavigationItemSelectedListener(this@MainActivity)
 
         if (intent != null && intent.extras != null) {
             val userName: String = intent.getStringExtra("UserName").toString()
@@ -100,6 +99,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_hotnews -> {
+                val navOptions =
+                    NavOptions.Builder().setPopUpTo(R.id.hotNewsFragment, true).build()
+                Navigation.findNavController(this, R.id.fragmentContainerView2)
+                    .navigate(R.id.hotNewsFragment, null, navOptions)
+
             }
 
             R.id.nav_home -> {
