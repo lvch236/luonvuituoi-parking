@@ -16,7 +16,8 @@
     <fragment
         android:id="@+id/hotNewsFragment"
         android:name="com.example.luonvuituoi.fragments.HotNewFragment"
-        android:label="Hot News" >
+        android:label="Hot News"
+        tools:layout="@layout/fragment_hot_news" >
         <action
             android:id="@+id/action_hotNewsFragment_to_locationFragment"
             app:destination="@id/locationFragment" />

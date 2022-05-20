@@ -9,7 +9,6 @@ interface HotNewApis {
     @GET("everything")
     suspend fun listNowPlayMovies(
         @Query("q") q: String,
-        @Query("from") from: String,
         @Query("sortBy") sortBy: String,
         @Query("language") language: String,
     ): HotNews

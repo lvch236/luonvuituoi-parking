@@ -1,15 +1,18 @@
 package com.example.luonvuituoi.viewModel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.luonvuituoi.databinding.FragmentHotNewsBinding
 import com.example.luonvuituoi.item.HotNewItem
 import com.example.luonvuituoi.services.HotNewRestClient
 import kotlinx.coroutines.launch
 
 class HotNewVM : ViewModel() {
     private var _movieData : MutableLiveData<List<HotNewItem>> = MutableLiveData<List<HotNewItem>>()
+    lateinit var binding : FragmentHotNewsBinding
     val hotNewData : LiveData<List<HotNewItem>>
         get() = _movieData
 
@@ -17,15 +20,16 @@ class HotNewVM : ViewModel() {
     val errEvent: LiveData<String>
         get() = _errEvent
 
-    fun getNowPlaying() {
+    fun getNowPlaying(search: String) {
+        Log.e("1234", search.toString())
         viewModelScope.launch {
             try {
                 val movieResp = HotNewRestClient.getInstance().api.listNowPlayMovies(
-                    q = "tesla",
-                    from = "2022-04-19",
+                    q = search,
                     sortBy = "publishedAt",
                     language = "vi",
                 )
+                Log.e("12345", movieResp.toString())
                 _movieData.postValue(movieResp.articles!!)
             } catch (e: Exception) {
                 _errEvent.value = e.message
