@@ -3,6 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/chat_border.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/ic_attach.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/ic_chat.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/ic_face_laugh.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/ic_send.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/receive_round_box.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/round_button.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/send_round_box.xml" value="0.1" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/activity_main.xml" value="0.11775362318840579" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/fragment_hot_news.xml" value="0.36666666666666664" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/fragment_support.xml" value="0.21" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/message_item.xml" value="0.18034447821681865" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/round_button.xml" value="0.18034447821681865" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/send_round_box.xml" value="0.17806484295845998" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/github/luonvuituoi-parking/app/src/main/res/layout/nav_header.xml" value="0.2128623188405797" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/github/luonvuituoi-parking/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/luonvuituoi/app/src/main/res/drawable/apple_bg.xml" value="0.112" />

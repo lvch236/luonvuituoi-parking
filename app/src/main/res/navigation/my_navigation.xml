@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_locationFragment_to_hotNewsFragment"
             app:destination="@id/hotNewsFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_supportFragment"
+            app:destination="@id/supportFragment" />
     </fragment>
     <fragment
         android:id="@+id/hotNewsFragment"
@@ -20,6 +23,14 @@
         tools:layout="@layout/fragment_hot_news" >
         <action
             android:id="@+id/action_hotNewsFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/supportFragment"
+        android:name="com.example.luonvuituoi.fragments.SupportFragment"
+        android:label="Chat Support" >
+        <action
+            android:id="@+id/action_supportFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
     </fragment>
 </navigation>

@@ -116,7 +116,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_payment -> {
             }
-            R.id.nav_settings -> {
+            R.id.nav_support -> {
+                val navOptions =
+                    NavOptions.Builder().setPopUpTo(R.id.supportFragment, true).build()
+                Navigation.findNavController(this, R.id.fragmentContainerView2)
+                    .navigate(R.id.supportFragment, null, navOptions)
 
             }
             R.id.nav_logout -> {
