@@ -62,5 +62,9 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.luonvuituoi.fragments.DetailFragment"
-        android:label="Detail" />
+        android:label="Detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+    </fragment>
 </navigation>

@@ -101,6 +101,7 @@ class LocationFragment : Fragment(), OnItemClickListener {
 
     override fun onItemClicked(mallItem: MallItem) {
         findNavController().navigate(R.id.action_locationFragment_to_bookSlotFragment)
+
     }
 
     override fun onDirectionsClicked(mallItem: MallItem) {

@@ -5,16 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.luonvuituoi.R
-import com.example.luonvuituoi.databinding.FragmentBookSlotBinding
 import com.example.luonvuituoi.databinding.FragmentPaymentBinding
-import java.util.*
-import java.util.concurrent.TimeUnit
 
 class PaymentFragment : Fragment() {
     lateinit var binding: FragmentPaymentBinding
+    var typePayment:String? =null;
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +28,6 @@ class PaymentFragment : Fragment() {
             findNavController().navigate(R.id.action_paymentFragment_to_detailFragment)
         }
         binding.apply {
-
             cv13hrs.setOnClickListener {
                 cv13hrs.setCardBackgroundColor(resources.getColor(R.color.app_red))
                 cv34Hrs.setCardBackgroundColor(resources.getColor(R.color.white))
@@ -71,18 +67,22 @@ class PaymentFragment : Fragment() {
                 visa.setCardBackgroundColor(resources.getColor(R.color.phone_orange))
                 momo.setCardBackgroundColor(resources.getColor(R.color.white))
                 zalopay.setCardBackgroundColor(resources.getColor(R.color.white))
+                typePayment = "Visa"
             }
             momo.setOnClickListener {
                 momo.setCardBackgroundColor(resources.getColor(R.color.phone_orange))
                 visa.setCardBackgroundColor(resources.getColor(R.color.white))
                 zalopay.setCardBackgroundColor(resources.getColor(R.color.white))
+                typePayment = "Momo"
             }
             zalopay.setOnClickListener {
                 zalopay.setCardBackgroundColor(resources.getColor(R.color.phone_orange))
                 visa.setCardBackgroundColor(resources.getColor(R.color.white))
                 momo.setCardBackgroundColor(resources.getColor(R.color.white))
+                typePayment = "Zalopay"
             }
-            }
+        }
+
     }
 
 }

@@ -108,6 +108,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         }
         binding.pay.setOnClickListener {
             findNavController().navigate(R.id.action_bookSlotFragment_to_paymentFragment)
+
 //            Toast.makeText(context,"Payment",Toast.LENGTH_SHORT).show()
         }
 
