@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -20,6 +21,7 @@ import com.example.luonvuituoi.adapter.MallItemAdapter
 import com.example.luonvuituoi.databinding.FragmentLocationBinding
 import com.example.luonvuituoi.helper.DataStore
 import com.example.luonvuituoi.item.MallItem
+import com.example.luonvuituoi.parcalable.ArgsLocationToBookSlot
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.util.*
@@ -100,7 +102,14 @@ class LocationFragment : Fragment(), OnItemClickListener {
     }
 
     override fun onItemClicked(mallItem: MallItem) {
-        findNavController().navigate(R.id.action_locationFragment_to_bookSlotFragment)
+      // val data = ArgsLocationToBookSlot(mallItem.name,mallItem.picture)
+        val fragment = Fragment()
+        val bundle = Bundle()
+        bundle.putString("nameMall", mallItem.name)
+        fragment.arguments = bundle
+        Log.e("test",bundle.toString())
+        findNavController().navigate(R.id.action_locationFragment_to_bookSlotFragment,bundle)
+
 
     }
 
