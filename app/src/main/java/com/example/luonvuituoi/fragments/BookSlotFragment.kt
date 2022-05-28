@@ -45,24 +45,27 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         bookAdapter = context?.let { BookAdapter(it, arrayList!!) }
         gridView?.adapter = bookAdapter
         gridView!!.onItemClickListener = this
+        binding.pay.setOnClickListener {
+            Toast.makeText(context,"Payment",Toast.LENGTH_SHORT).show()
+        }
     }
     private fun setDataList():ArrayList<BookItem>
     {
         var arrayList:ArrayList<BookItem> = ArrayList()
-        arrayList.add(BookItem(R.drawable.car,"1",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"2",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"3",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"4",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"5",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"6",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"7",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"8",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"5",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"6",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"7",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"8",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"9",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"10",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P101",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P102",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P103",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P104",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P105",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P106",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P107",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P108",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P109",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P110",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P111",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"P112",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P113",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"P114",12,"",false))
         return arrayList
     }
 
