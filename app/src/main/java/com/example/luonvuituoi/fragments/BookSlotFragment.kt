@@ -1,5 +1,7 @@
 package com.example.luonvuituoi.fragments
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +12,8 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.view.get
 import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.BookAdapter
 import com.example.luonvuituoi.databinding.FragmentBookSlotBinding
@@ -47,29 +51,58 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         var arrayList:ArrayList<BookItem> = ArrayList()
         arrayList.add(BookItem(R.drawable.car,"1",12,"",true))
         arrayList.add(BookItem(R.drawable.car,"2",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"3",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"3",12,"",false))
         arrayList.add(BookItem(R.drawable.car,"4",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"5",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"5",12,"",false))
         arrayList.add(BookItem(R.drawable.car,"6",12,"",true))
         arrayList.add(BookItem(R.drawable.car,"7",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"8",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"5",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"6",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"8",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"5",12,"",false))
+        arrayList.add(BookItem(R.drawable.car,"6",12,"",false))
         arrayList.add(BookItem(R.drawable.car,"7",12,"",true))
         arrayList.add(BookItem(R.drawable.car,"8",12,"",true))
-        arrayList.add(BookItem(R.drawable.vanhanh,"9",12,"",true))
+        arrayList.add(BookItem(R.drawable.car,"9",12,"",true))
         arrayList.add(BookItem(R.drawable.car,"10",12,"",true))
         return arrayList
     }
 
+    @SuppressLint("ResourceAsColor", "ResourceType")
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-        var view:View = View.inflate(context, R.layout.item_car,null)
+
+    //    imageView.setImageResource(R.drawable.vanhanh)
         var items :BookItem = arrayList!!.get(position)
-        var car : ImageView = view.findViewById(R.id.car)
-       car.setImageResource(R.drawable.vanhanh)
-        bookAdapter!!.notifyDataSetChanged();
-        Toast.makeText(context,items.id,Toast.LENGTH_SHORT).show()
-        Log.e("123","123")
+        if (items.available==true)
+        {
+            for (index in 0 until p0!!.count){
+                p0[index].apply {
+                    if (index != position){
+                        // background color for not selected items
+                        //findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#E60026"))
+                        var listItem: BookItem = arrayList!!.get(index)
+                        findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFFFFF"))
+                        if (listItem.available==true)
+                        {
+                            Log.e("test",listItem.available.toString())
+                            findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.bg_item)
+                        }
+                    }else{
+                        // background color for selected item
+                        findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFDB00"))
+                        findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.car)
+                    }
+                }
+            }
+//            p1?.findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFDB00"))
+//            p1?.findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.car)
+           // car.setBackgroundColor(Color.parseColor("#E60026"))
+            Toast.makeText(context,items.id,Toast.LENGTH_SHORT).show()
+            Log.e("123","123")
+        }
+        else
+        {
+            Toast.makeText(context,"InValid",Toast.LENGTH_SHORT).show()
+        }
+
     }
 
 }

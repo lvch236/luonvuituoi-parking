@@ -27,10 +27,12 @@ class BookAdapter(var context: Context, var arrayList: ArrayList<BookItem>): Bas
        var view:View = View.inflate(context, R.layout.item_car,null)
         var car :ImageView = view.findViewById(R.id.car)
         var listItem: BookItem = arrayList.get(position)
-//        with(car) {
-//            listItem.car?.let { setImageResource(it) }
-//        }
-        car.setImageResource(R.drawable.car)
+        if (listItem.available == false) {
+            with(car) {
+                listItem.car?.let { setImageResource(it) }
+            }
+        }
+       // car.setImageResource(R.drawable.car)
         return view
     }
 }
