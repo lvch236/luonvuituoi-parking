@@ -1,10 +1,10 @@
 package com.example.luonvuituoi.fragments
 
+import android.R.attr.defaultValue
 import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,21 +12,30 @@ import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.core.view.get
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.BookAdapter
 import com.example.luonvuituoi.databinding.FragmentBookSlotBinding
 import com.example.luonvuituoi.item.BookItem
-import java.text.FieldPosition
 
 
 class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
     private var arrayList:ArrayList<BookItem>? =null
     private var gridView:GridView?=null
+    var nameMall:String? =null;
     private var bookAdapter:BookAdapter?=null
     lateinit var binding: FragmentBookSlotBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val bundle = this.arguments
+        Log.e("test",bundle.toString())
+        if (bundle != null) {
+            nameMall = bundle.getString("nameMall", defaultValue.toString())
+            Log.e("conghau", nameMall.toString())
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,6 +55,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         bookAdapter = context?.let { BookAdapter(it, arrayList!!) }
         gridView?.adapter = bookAdapter
         gridView!!.onItemClickListener = this
+
         binding.pay.setOnClickListener {
             Toast.makeText(context,"Please choose parking before payment!",Toast.LENGTH_SHORT).show()
         }
@@ -86,7 +96,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
                         findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFFFFF"))
                         if (listItem.available==true)
                         {
-                            Log.e("test",listItem.available.toString())
+                           // Log.e("test",listItem.available.toString())
                             findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.bg_item)
                         }
                     }else{
@@ -107,8 +117,14 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
             Toast.makeText(context,"InValid",Toast.LENGTH_SHORT).show()
         }
         binding.pay.setOnClickListener {
-            findNavController().navigate(R.id.action_bookSlotFragment_to_paymentFragment)
 
+            val fragment = Fragment()
+            val bundle = Bundle()
+            bundle.putString("nameMall", nameMall)
+            bundle.putString("Box",items.id)
+            fragment.arguments = bundle
+            Log.e("test",bundle.toString())
+            findNavController().navigate(R.id.action_bookSlotFragment_to_paymentFragment,bundle)
 //            Toast.makeText(context,"Payment",Toast.LENGTH_SHORT).show()
         }
 

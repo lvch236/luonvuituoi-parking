@@ -38,40 +38,29 @@
             app:layout_constraintTop_toBottomOf="@+id/animationView" />
 
         <TextView
-            android:id="@+id/tvFloor"
+            android:id="@+id/tvBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Floor No: "
+            android:text="Box Parking: "
             android:textColor="@color/white"
             android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvMall" />
 
-        <TextView
-            android:id="@+id/tvSpot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="14dp"
-            android:text="Parking Spot: "
-            android:textColor="@color/white"
-            android:textSize="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFloor" />
 
         <TextView
-            android:id="@+id/tvTime"
+            android:id="@+id/tv_TimeBook"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Time Slot: "
+            android:text="Time Book: "
             android:textColor="@color/white"
             android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpot" />
+            app:layout_constraintTop_toBottomOf="@+id/tvBox" />
 
         <TextView
             android:id="@+id/tvTimeLeft"
@@ -83,19 +72,30 @@
             android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTime" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_TimeBook" />
 
         <TextView
-            android:id="@+id/tvDate"
+            android:id="@+id/tv_PaymentFee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Date: "
+            android:text="Payment Fee: "
             android:textColor="@color/white"
             android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTimeLeft" />
+        <TextView
+            android:id="@+id/tv_PaymentType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Payment Type: "
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_PaymentFee" />
 
         <Button
             android:id="@+id/btnMyBookings"
