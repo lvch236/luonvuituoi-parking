@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.core.view.get
+import androidx.navigation.fragment.findNavController
 import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.BookAdapter
 import com.example.luonvuituoi.databinding.FragmentBookSlotBinding
@@ -46,7 +47,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         gridView?.adapter = bookAdapter
         gridView!!.onItemClickListener = this
         binding.pay.setOnClickListener {
-            Toast.makeText(context,"Payment",Toast.LENGTH_SHORT).show()
+            Toast.makeText(context,"Please choose parking before payment!",Toast.LENGTH_SHORT).show()
         }
     }
     private fun setDataList():ArrayList<BookItem>
@@ -99,11 +100,15 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
 //            p1?.findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.car)
            // car.setBackgroundColor(Color.parseColor("#E60026"))
             Toast.makeText(context,items.id,Toast.LENGTH_SHORT).show()
-            Log.e("123","123")
+         //   Log.e("123","123")
         }
         else
         {
             Toast.makeText(context,"InValid",Toast.LENGTH_SHORT).show()
+        }
+        binding.pay.setOnClickListener {
+            findNavController().navigate(R.id.action_bookSlotFragment_to_paymentFragment)
+//            Toast.makeText(context,"Payment",Toast.LENGTH_SHORT).show()
         }
 
     }

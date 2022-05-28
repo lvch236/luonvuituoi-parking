@@ -44,5 +44,23 @@
         <action
             android:id="@+id/action_bookSlotFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_bookSlotFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.luonvuituoi.fragments.PaymentFragment"
+        android:label="Payment" >
+        <action
+            android:id="@+id/action_paymentFragment_to_bookSlotFragment"
+            app:destination="@id/bookSlotFragment" />
+        <action
+            android:id="@+id/action_paymentFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.luonvuituoi.fragments.DetailFragment"
+        android:label="Detail" />
 </navigation>
