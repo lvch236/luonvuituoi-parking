@@ -71,6 +71,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         database = FirebaseDatabase.getInstance().getReference(path)
         database.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
+                arrayList!!.clear()
                 var i : Int = 0
                 for (postSnapshot in snapshot.children) {
                     i = i+1
