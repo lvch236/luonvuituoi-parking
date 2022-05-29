@@ -18,13 +18,18 @@ import androidx.navigation.fragment.findNavController
 import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.BookAdapter
 import com.example.luonvuituoi.databinding.FragmentBookSlotBinding
+import com.example.luonvuituoi.helper.KEY_USER_GOOGLE_ID
+import com.example.luonvuituoi.helper.PreferenceHelper
 import com.example.luonvuituoi.item.BookItem
+import com.example.luonvuituoi.item.parking
+import com.google.firebase.database.*
 
 
 class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
     private var arrayList:ArrayList<BookItem>? =null
     private var gridView:GridView?=null
     var nameMall:String? =null;
+    private lateinit var database : DatabaseReference
     private var bookAdapter:BookAdapter?=null
     lateinit var binding: FragmentBookSlotBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +55,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
 
         gridView = binding.gridView
         arrayList = ArrayList()
-        arrayList = setDataList()
+        setDataList()
 
         bookAdapter = context?.let { BookAdapter(it, arrayList!!) }
         gridView?.adapter = bookAdapter
@@ -60,24 +65,43 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
             Toast.makeText(context,"Please choose parking before payment!",Toast.LENGTH_SHORT).show()
         }
     }
-    private fun setDataList():ArrayList<BookItem>
+    private fun setDataList()
     {
-        var arrayList:ArrayList<BookItem> = ArrayList()
-        arrayList.add(BookItem(R.drawable.car,"P101",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P102",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P103",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P104",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P105",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P106",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P107",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P108",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P109",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P110",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P111",12,"",true))
-        arrayList.add(BookItem(R.drawable.car,"P112",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P113",12,"",false))
-        arrayList.add(BookItem(R.drawable.car,"P114",12,"",false))
-        return arrayList
+        var path = "parking/F_1/"
+        database = FirebaseDatabase.getInstance().getReference(path)
+        database.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var i : Int = 0
+                for (postSnapshot in snapshot.children) {
+                    i = i+1
+                    val post = postSnapshot.getValue(parking::class.java)
+                    Log.e("123", post!!.available!!)
+                    arrayList!!.add(BookItem(R.drawable.car,"P_10"+i,post.time,post.user_id,post.available))
+                }
+                bookAdapter!!.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context,"Get Faild!",Toast.LENGTH_SHORT).show()
+            }
+
+        })
+      //  var arrayList:ArrayList<BookItem> = ArrayList()
+//        arrayList!!.add(BookItem(R.drawable.car,"P_101","12","","true"))
+//        arrayList!!.add(BookItem(R.drawable.car,"P_102","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_103","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_104","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_105","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_106","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_107","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_108","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_109","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_110","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_111","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_112","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_113","12","","true"))
+//        arrayList.add(BookItem(R.drawable.car,"P_114","12","","true"))
+//       // return arrayList
     }
 
     @SuppressLint("ResourceAsColor", "ResourceType")
@@ -85,8 +109,9 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
 
     //    imageView.setImageResource(R.drawable.vanhanh)
         var items :BookItem = arrayList!!.get(position)
-        if (items.available==true)
+        if (items.available.equals("true"))
         {
+           // Log.e("conga",p0!!.count.toString())
             for (index in 0 until p0!!.count){
                 p0[index].apply {
                     if (index != position){
@@ -94,7 +119,7 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
                         //findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#E60026"))
                         var listItem: BookItem = arrayList!!.get(index)
                         findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                        if (listItem.available==true)
+                        if (listItem.available.equals("true"))
                         {
                            // Log.e("test",listItem.available.toString())
                             findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.bg_item)
