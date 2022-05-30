@@ -1,6 +1,8 @@
 package com.example.luonvuituoi.item
 
 class myBooking {
+    var id:String?=null
+    var check: String? = null
     var nameMall: String? = null
     var boxParking: String? = null
     var timeBook: String? = null
@@ -12,6 +14,8 @@ class myBooking {
 
     constructor()
     constructor(
+        id: String?,
+        check: String?,
         nameMall: String?,
         boxParking: String?,
         timeBook: String?,
@@ -19,6 +23,8 @@ class myBooking {
         paymentFee: String?,
         paymentType: String?
     ) {
+        this.id = id
+        this.check = check
         this.nameMall = nameMall
         this.boxParking = boxParking
         this.timeBook = timeBook
@@ -26,4 +32,6 @@ class myBooking {
         this.paymentFee = paymentFee
         this.paymentType = paymentType
     }
+
+
 }

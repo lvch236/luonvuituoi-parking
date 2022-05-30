@@ -72,12 +72,12 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
         database.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 arrayList!!.clear()
-                var i : Int = 0
+                var i : Int = 100
                 for (postSnapshot in snapshot.children) {
                     i = i+1
                     val post = postSnapshot.getValue(parking::class.java)
                     Log.e("123", post!!.available!!)
-                    arrayList!!.add(BookItem(R.drawable.car,"P_10"+i,post.time,post.user_id,post.available))
+                    arrayList!!.add(BookItem(R.drawable.car,"P_"+i,post.time,post.user_id,post.available))
                 }
                 bookAdapter!!.notifyDataSetChanged()
             }
