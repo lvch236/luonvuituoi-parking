@@ -20,11 +20,6 @@
             android:title="@string/my_bookings" />
 
         <item
-            android:id="@+id/nav_payment"
-            android:icon="@drawable/ic_payment"
-            android:title="@string/payment" />
-
-        <item
             android:id="@+id/nav_support"
             android:icon="@drawable/ic_chat"
             android:title="Support" />

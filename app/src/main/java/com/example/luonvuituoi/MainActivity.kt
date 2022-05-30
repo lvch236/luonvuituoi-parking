@@ -120,8 +120,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .navigate(R.id.locationFragment, null, navOptions)
             }
             R.id.nav_my_bookings -> {
-            }
-            R.id.nav_payment -> {
+                val navOptions =
+                    NavOptions.Builder().setPopUpTo(R.id.myBookingFragment, true).build()
+                Navigation.findNavController(this, R.id.fragmentContainerView2)
+                    .navigate(R.id.myBookingFragment, null, navOptions)
             }
             R.id.nav_support -> {
                 val navOptions =

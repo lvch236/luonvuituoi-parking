@@ -53,6 +53,9 @@ class DetailFragment : Fragment() {
         binding.btnHome.setOnClickListener{
             findNavController().navigate(R.id.action_detailFragment_to_locationFragment)
         }
+        binding.btnMyBookings.setOnClickListener{
+            findNavController().navigate(R.id.action_detailFragment_to_myBookingFragment)
+        }
 
 
 //        val user = FirebaseAuth.getInstance().currentUser
