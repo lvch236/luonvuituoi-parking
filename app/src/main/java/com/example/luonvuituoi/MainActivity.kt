@@ -1,5 +1,7 @@
 package com.example.luonvuituoi
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -16,14 +18,15 @@ import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.example.luonvuituoi.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var drawer: DrawerLayout
-
+    private lateinit var mAuth: FirebaseAuth
     lateinit var binding: ActivityMainBinding
-
+    var uidSignIn:String? =null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -68,13 +71,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             else Glide.with(navProfile).load("https://dvdn247.net/wp-content/uploads/2020/07/avatar-mac-dinh-1.png").into(navProfile)
             Log.e("email",userEmail)
-
+//            val currentUserUid = FirebaseAuth.getInstance().currentUser?.uid ?: "u5"
+//            Log.e("conghau",currentUserUid)
+//            uidSignIn = intent.getStringExtra("uid")? :""
         }
-
-        binding.apply {
-
-        }
-
+//        mAuth = FirebaseAuth.getInstance()
+//        val currenUser = mAuth.updateCurrentUser()
+//        //mAuth.uid
+//       // Log.e("147", currenUser!!.uid)
+//        if (currenUser == null) Log.e("123","333")
+//        if (mAuth == null) Log.e("123","456")
+//        Log.e("123", mAuth.uid!!)
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -113,8 +120,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .navigate(R.id.locationFragment, null, navOptions)
             }
             R.id.nav_my_bookings -> {
-            }
-            R.id.nav_payment -> {
+                val navOptions =
+                    NavOptions.Builder().setPopUpTo(R.id.myBookingFragment, true).build()
+                Navigation.findNavController(this, R.id.fragmentContainerView2)
+                    .navigate(R.id.myBookingFragment, null, navOptions)
             }
             R.id.nav_support -> {
                 val navOptions =
@@ -124,7 +133,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_logout -> {
-
+                mAuth = FirebaseAuth.getInstance()
+                mAuth.signOut()
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
             }
         }
 

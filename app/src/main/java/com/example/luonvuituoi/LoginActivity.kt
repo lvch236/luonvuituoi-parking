@@ -1,13 +1,12 @@
 package com.example.luonvuituoi
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.luonvuituoi.databinding.ActivityLoginBinding
 import com.example.luonvuituoi.helper.*
-import com.example.luonvuituoi.helper.PreferenceHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -22,9 +21,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.messaging.FirebaseMessaging
 import java.util.*
 
+
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
-
     //googleAuth
     lateinit var gso: GoogleSignInOptions
     lateinit var googleSignInClient: GoogleSignInClient
@@ -40,7 +39,9 @@ class LoginActivity : AppCompatActivity() {
         initializeSignin()
 
         mAuth = FirebaseAuth.getInstance()
-
+        val currentUserUid = mAuth.currentUser?.uid ?: "u5"
+        val currentUser = mAuth.currentUser?:"ddd"
+        Log.e("conghau", currentUser.toString())
 //        binding.apply {
 //            ibMobile.setOnClickListener {
 //                startActivity(Intent(this@LoginActivity, PhoneNumberSignInActivity::class.java))
@@ -81,6 +82,7 @@ class LoginActivity : AppCompatActivity() {
                 val account = task.getResult(ApiException::class.java)
                 PreferenceHelper.writeBooleanToPreference(KEY_LOGIN_WITH_OAUTH, true)
                 updatePreference(account!!)
+             //   Log.e("147852", account.id!!)
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("UserName", account.displayName)
                 intent.putExtra("UserEmail", account.email)
@@ -106,14 +108,8 @@ class LoginActivity : AppCompatActivity() {
     private fun updatePreference(account: GoogleSignInAccount) {
         PreferenceHelper.writeBooleanToPreference(KEY_USER_LOGGED_IN, true)
         PreferenceHelper.writeStringToPreference(KEY_USER_GOOGLE_ID, account.id)
-        PreferenceHelper.writeStringToPreference(
-            KEY_DISPLAY_NAME,
-            account.displayName
-        )
-        PreferenceHelper.writeStringToPreference(
-            KEY_USER_GOOGLE_GMAIL,
-            account.email
-        )
+        PreferenceHelper.writeStringToPreference(KEY_DISPLAY_NAME, account.displayName)
+        PreferenceHelper.writeStringToPreference(KEY_USER_GOOGLE_GMAIL, account.email)
     }
 
     private fun saveUser(account: GoogleSignInAccount) {

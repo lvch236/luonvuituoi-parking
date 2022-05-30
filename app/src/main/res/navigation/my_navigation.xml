@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_locationFragment_to_bookSlotFragment"
             app:destination="@id/bookSlotFragment" />
+        <action
+            android:id="@+id/action_locationFragment_to_myBookingFragment"
+            app:destination="@id/myBookingFragment" />
     </fragment>
     <fragment
         android:id="@+id/hotNewsFragment"
@@ -68,6 +71,17 @@
         android:label="Detail" >
         <action
             android:id="@+id/action_detailFragment_to_locationFragment"
+            app:destination="@id/locationFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_myBookingFragment"
+            app:destination="@id/myBookingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myBookingFragment"
+        android:name="com.example.luonvuituoi.fragments.MyBookingFragment"
+        android:label="My Booking" >
+        <action
+            android:id="@+id/action_myBookingFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
     </fragment>
 </navigation>
