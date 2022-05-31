@@ -107,7 +107,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when (item.itemId) {
             R.id.nav_hotnews -> {
                 val navOptions =
-                    NavOptions.Builder().setPopUpTo(R.id.hotNewsFragment, true).build()
+                    NavOptions.Builder()
+                        .setPopUpTo(R.id.hotNewsFragment, true)
+                        .setEnterAnim(R.anim.slide_in_right)
+                        .setExitAnim(R.anim.stay)
+                        .setPopEnterAnim(R.anim.slide_in_left)
+                        .setPopExitAnim(R.anim.stay)
+                        .build()
                 Navigation.findNavController(this, R.id.fragmentContainerView2)
                     .navigate(R.id.hotNewsFragment, null, navOptions)
 
@@ -115,7 +121,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             R.id.nav_home -> {
                 val navOptions =
-                    NavOptions.Builder().setPopUpTo(R.id.locationFragment, true).build()
+                    NavOptions.Builder().setPopUpTo(R.id.locationFragment, true)
+                        .setEnterAnim(R.anim.slide_in_right)
+                        .setExitAnim(R.anim.stay)
+                        .build()
                 Navigation.findNavController(this, R.id.fragmentContainerView2)
                     .navigate(R.id.locationFragment, null, navOptions)
             }
@@ -127,7 +136,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             R.id.nav_support -> {
                 val navOptions =
-                    NavOptions.Builder().setPopUpTo(R.id.supportFragment, true).build()
+                    NavOptions.Builder().setPopUpTo(R.id.supportFragment, true)
+                        .setEnterAnim(R.anim.slide_in_right)
+                        .setExitAnim(R.anim.stay)
+                        .build()
                 Navigation.findNavController(this, R.id.fragmentContainerView2)
                     .navigate(R.id.supportFragment, null, navOptions)
 

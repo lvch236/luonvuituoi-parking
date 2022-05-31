@@ -1,9 +1,11 @@
 package com.example.luonvuituoi.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -44,8 +46,11 @@ class HotNewAdapter : ListAdapter<HotNewItem, HotNewAdapter.HotNewVH>(MovieDiffU
             textView.text = item.title.trim()
             textView2.text = item.description.trim()
             textView3.text = item.publishedAt.substring(0,10).trim()
-            Glide.with(itemView.context).load(item.urlToImage.trim())
+            try { Glide.with(itemView.context).load(item.urlToImage.trim()).placeholder(R.drawable.loading)
                 .into(imageView)
+            }
+            catch (e: Exception) {
+            }
         }
 
         init {

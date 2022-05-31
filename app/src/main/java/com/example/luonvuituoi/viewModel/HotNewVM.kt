@@ -20,8 +20,7 @@ class HotNewVM : ViewModel() {
     val errEvent: LiveData<String>
         get() = _errEvent
 
-    fun getNowPlaying(search: String) {
-        Log.e("1234", search.toString())
+    fun getHotNews(search: String) {
         viewModelScope.launch {
             try {
                 val movieResp = HotNewRestClient.getInstance().api.listNowPlayMovies(
@@ -29,7 +28,6 @@ class HotNewVM : ViewModel() {
                     sortBy = "publishedAt",
                     language = "vi",
                 )
-                Log.e("12345", movieResp.toString())
                 _movieData.postValue(movieResp.articles!!)
             } catch (e: Exception) {
                 _errEvent.value = e.message

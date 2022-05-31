@@ -5,19 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.load.engine.Resource
-import com.example.luonvuituoi.R
 import com.example.luonvuituoi.adapter.HotFeedAdapter
 import com.example.luonvuituoi.adapter.HotNewAdapter
 import com.example.luonvuituoi.databinding.FragmentHotNewsBinding
-import com.example.luonvuituoi.databinding.HotFeedItemLayoutBinding
 import com.example.luonvuituoi.viewModel.HotNewVM
 
 class HotNewFragment : Fragment() {
@@ -50,8 +44,8 @@ class HotNewFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (keyword != "All") vm.getNowPlaying(keyword)
-        else vm.getNowPlaying("*")
+        if (keyword != "All") vm.getHotNews(keyword)
+        else vm.getHotNews("*")
     }
 
     private fun setUpHotFeedList() {
@@ -61,8 +55,8 @@ class HotNewFragment : Fragment() {
         adapter1.setOnItemClickListener(object : HotFeedAdapter.onItemClickListener{
             override fun onItemClick(position: Int) {
                 keyword = keyList[position]
-                if (keyword != "All") vm.getNowPlaying(keyword)
-                else vm.getNowPlaying("*")
+                if (keyword != "All") vm.getHotNews(keyword)
+                else vm.getHotNews("*")
                 setUpHotFeedList()
             }
         })

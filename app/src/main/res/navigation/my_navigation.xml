@@ -37,7 +37,8 @@
     <fragment
         android:id="@+id/supportFragment"
         android:name="com.example.luonvuituoi.fragments.SupportFragment"
-        android:label="Chat Support" >
+        android:label="Chat Support"
+        tools:layout="@layout/fragment_support">
         <action
             android:id="@+id/action_supportFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
@@ -46,7 +47,7 @@
         android:id="@+id/bookSlotFragment"
         android:name="com.example.luonvuituoi.fragments.BookSlotFragment"
         android:label="Book a Slot"
-        tools:layout="@layout/fragment_book_slot" >
+        tools:layout="@layout/fragment_book_slot">
         <action
             android:id="@+id/action_bookSlotFragment_to_locationFragment"
             app:destination="@id/locationFragment" />
@@ -57,7 +58,8 @@
     <fragment
         android:id="@+id/paymentFragment"
         android:name="com.example.luonvuituoi.fragments.PaymentFragment"
-        android:label="Payment" >
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment">
         <action
             android:id="@+id/action_paymentFragment_to_bookSlotFragment"
             app:destination="@id/bookSlotFragment" />
@@ -68,7 +70,8 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.luonvuituoi.fragments.DetailFragment"
-        android:label="Detail" >
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail">
         <action
             android:id="@+id/action_detailFragment_to_locationFragment"
             app:destination="@id/locationFragment" />

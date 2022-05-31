@@ -35,7 +35,6 @@ class HotFeedAdapter(var dataSet: List<String>, var key: String) : ListAdapter<S
     class HotFeedViewHolder(itemView: View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView) {
 
         fun bindData(word: String, keyword: String) {
-            Log.e("12345", "$word $keyword")
             if (word == keyword) {
                 itemView.findViewById<TextView>(R.id.keyword).setBackgroundResource(R.drawable.book_bg)
                 itemView.findViewById<TextView>(R.id.keyword).setTextColor(Color.WHITE)

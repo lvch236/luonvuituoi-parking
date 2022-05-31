@@ -24,8 +24,8 @@ class SupportAdapter: RecyclerView.Adapter<SupportAdapter.MessageViewHolder>() {
             itemView.setOnClickListener {
 
                 //Remove message on the item clicked
-                messagesList.removeAt(adapterPosition)
-                notifyItemRemoved(adapterPosition)
+//                messagesList.removeAt(adapterPosition)
+//                notifyItemRemoved(adapterPosition)
             }
         }
     }
