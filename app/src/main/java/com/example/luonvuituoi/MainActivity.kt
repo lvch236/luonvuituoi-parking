@@ -17,6 +17,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.bumptech.glide.Glide
 import com.example.luonvuituoi.databinding.ActivityMainBinding
+import com.example.luonvuituoi.helper.KEY_LOGIN_WITH_OAUTH
+import com.example.luonvuituoi.helper.KEY_USER_LOGGED_IN
+import com.example.luonvuituoi.helper.PreferenceHelper
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var drawer: DrawerLayout
     private lateinit var mAuth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
     lateinit var binding: ActivityMainBinding
     var uidSignIn:String? =null;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -148,6 +152,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_logout -> {
                 mAuth = FirebaseAuth.getInstance()
                 mAuth.signOut()
+                PreferenceHelper.writeBooleanToPreference(KEY_LOGIN_WITH_OAUTH, false)
+                PreferenceHelper.writeBooleanToPreference(KEY_USER_LOGGED_IN, false)
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }

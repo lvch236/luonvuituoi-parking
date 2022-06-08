@@ -50,6 +50,7 @@
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/round_button.xml" value="0.1" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/send_round_box.xml" value="0.1" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/drawable/slot_booking.xml" value="0.108" />
+        <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/activity_login.xml" value="0.221875" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/activity_main.xml" value="0.11775362318840579" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/fragment_book_slot.xml" value="0.25" />
         <entry key="..\:/NAMTU_KI2/ANDROID/PROJECT/1/luonvuituoi-parking/app/src/main/res/layout/fragment_detail.xml" value="0.22" />
@@ -85,7 +86,6 @@
         <entry key="..\:/Users/Admin/AndroidStudioProjects/luonvuituoi/app/src/main/res/layout/mall_item_layout.xml" value="0.25" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/luonvuituoi/app/src/main/res/layout/nav_header.xml" value="0.5" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/luonvuituoi/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable-v24/rectangle.xml" value="0.242" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/apple_bg.xml" value="0.317" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/bg_item.xml" value="0.317" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/bg_rectangle.xml" value="0.317" />
@@ -93,14 +93,8 @@
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/boxback.xml" value="0.317" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/dots.xml" value="0.317" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/dotsback.xml" value="0.317" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/facebook_bg.xml" value="0.27" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/google_bg.xml" value="0.27" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/drawable/ic_google2.xml" value="0.27" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/activity_login.xml" value="0.2359375" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/activity_main.xml" value="0.17753623188405798" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/activity_splash.xml" value="0.3220108695652174" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/fragment_book_slot.xml" value="0.36666666666666664" />
-        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/fragment_hot_news.xml" value="0.33" />
+        <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/fragment_hot_news.xml" value="0.5131396957123098" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/fragment_location.xml" value="0.17753623188405798" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/hot_feed_item_layout.xml" value="0.33" />
         <entry key="..\:/VHH/NAM4_KI2/ADNROID/luonvuituoi-parking/app/src/main/res/layout/hot_new_item_layout.xml" value="0.25" />
