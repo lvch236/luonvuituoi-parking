@@ -21,7 +21,6 @@ import com.example.luonvuituoi.adapter.MallItemAdapter
 import com.example.luonvuituoi.databinding.FragmentLocationBinding
 import com.example.luonvuituoi.helper.DataStore
 import com.example.luonvuituoi.item.MallItem
-import com.example.luonvuituoi.parcalable.ArgsLocationToBookSlot
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import java.util.*
@@ -33,7 +32,7 @@ class LocationFragment : Fragment(), OnItemClickListener {
 
     private val FINE_LOCATION_RO = 101
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-
+    private var filterList: ArrayList<MallItem> = ArrayList<MallItem>()
     lateinit var mallItemAdapter: MallItemAdapter
 
     override fun onCreateView(
@@ -55,9 +54,6 @@ class LocationFragment : Fragment(), OnItemClickListener {
             layoutManager = LinearLayoutManager(context)
             adapter = mallItemAdapter
         }
-
-
-
         return binding.root
     }
 
@@ -126,7 +122,19 @@ class LocationFragment : Fragment(), OnItemClickListener {
         super.onDestroyView()
         _binding = null
     }
+    private fun filter(s: String) {
+        val data = DataStore.getDataSet()
+        filterList.clear()
+        for (MallItem in data) {
+            if (MallItem.name.toLowerCase().contains(s.lowercase(Locale.getDefault()))) {
+                filterList.add(MallItem)
+                Log.e("123",MallItem.name)
+            }
+        }
+        mallItemAdapter=MallItemAdapter(filterList, this@LocationFragment)
+        mallItemAdapter.notifyDataSetChanged()
 
+    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)
         val searchItem = menu.findItem(R.id.action_search)
@@ -136,6 +144,25 @@ class LocationFragment : Fragment(), OnItemClickListener {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 searchView.clearFocus()
+                val data = DataStore.getDataSet()
+                if (query.toString().isEmpty())
+                {
+                    mallItemAdapter=MallItemAdapter(data, this@LocationFragment)
+                    mallItemAdapter.notifyDataSetChanged()
+                }
+                else
+                {
+                    filterList.clear()
+                    for (MallItem in data) {
+                        if (MallItem.name.toLowerCase().contains(query!!.lowercase(Locale.getDefault()))) {
+                            filterList.add(MallItem)
+                            Log.e("123",MallItem.name)
+                        }
+                    }
+                    mallItemAdapter=MallItemAdapter(filterList, this@LocationFragment)
+                    mallItemAdapter.notifyDataSetChanged()
+                }
+                Log.e("123", query.toString())
                 return true
             }
 

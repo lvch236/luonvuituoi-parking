@@ -116,6 +116,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         .build()
                 Navigation.findNavController(this, R.id.fragmentContainerView2)
                     .navigate(R.id.hotNewsFragment, null, navOptions)
+      //          hideToolBar()
 
             }
 

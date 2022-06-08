@@ -8,10 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.GridView
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -118,14 +115,18 @@ class BookSlotFragment : Fragment() ,AdapterView.OnItemClickListener{
                     if (index != position){
                         // background color for not selected items
                         //findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#E60026"))
+
                         var listItem: BookItem = arrayList!!.get(index)
                         findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFFFFF"))
                         if (listItem.available.equals("true"))
                         {
+                            findViewById<TextView>(R.id.tv_nameBox).visibility = View.VISIBLE
+                          //  findViewById<TextView>(R.id.tv_nameBox).visibility = View.GONE
                            // Log.e("test",listItem.available.toString())
                             findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.bg_item)
                         }
                     }else{
+                        findViewById<TextView>(R.id.tv_nameBox).visibility = View.GONE
                         // background color for selected item
                         findViewById<ImageView>(R.id.car)!!.setBackgroundColor(Color.parseColor("#FFDB00"))
                         findViewById<ImageView>(R.id.car)!!.setImageResource(R.drawable.car)
