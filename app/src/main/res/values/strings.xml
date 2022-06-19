@@ -37,4 +37,10 @@
     <string name="my_bookings">My Bookings</string>
     <string name="settings">Settings</string>
     <string name="logout">Logout</string>
+
+    <string name="facebook_app_id">3376166939281553</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+
+
 </resources>

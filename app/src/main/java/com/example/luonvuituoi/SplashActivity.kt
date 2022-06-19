@@ -15,6 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.luonvuituoi.databinding.ActivitySplashBinding
 import com.example.luonvuituoi.helper.*
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -71,6 +72,7 @@ class SplashActivity : AppCompatActivity() {
                 PreferenceHelper.getLoginBooleanFromPreference(KEY_LOGIN_WITH_OAUTH) -> {
                     initializeSignin()
                 }
+
                 else -> {
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)

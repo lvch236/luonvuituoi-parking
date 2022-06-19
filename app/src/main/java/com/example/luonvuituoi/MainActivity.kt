@@ -20,6 +20,7 @@ import com.example.luonvuituoi.databinding.ActivityMainBinding
 import com.example.luonvuituoi.helper.KEY_LOGIN_WITH_OAUTH
 import com.example.luonvuituoi.helper.KEY_USER_LOGGED_IN
 import com.example.luonvuituoi.helper.PreferenceHelper
+import com.facebook.login.LoginManager
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
@@ -152,6 +153,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_logout -> {
                 mAuth = FirebaseAuth.getInstance()
                 mAuth.signOut()
+                LoginManager.getInstance().logOut();
                 PreferenceHelper.writeBooleanToPreference(KEY_LOGIN_WITH_OAUTH, false)
                 PreferenceHelper.writeBooleanToPreference(KEY_USER_LOGGED_IN, false)
                 val intent = Intent(this, LoginActivity::class.java)
